@@ -55,10 +55,11 @@ ROOT_URLCONF = 'agenda.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': [],           
+        'APP_DIRS': True,    
         'OPTIONS': {
             'context_processors': [
+                'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
@@ -66,6 +67,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'agenda.wsgi.application'
 
@@ -102,6 +104,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LOGIN_URL = '/login/'
 LOGOUT_URL = '/logout/'
+LOGOUT_REDIRECT_URL = '/login/'
+
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 LANGUAGE_CODE = 'pt-br'

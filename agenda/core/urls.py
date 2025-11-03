@@ -1,10 +1,12 @@
+from django.contrib import admin
 from django.urls import path
-from core.views import login, logout, home
-
+from core import views
 
 urlpatterns = [
-    path('login/', login, name='login'),
-    path('logout/', logout, name='logout'),
-    path('index/', home, name='index'),
-    path('', home,name='home')
+    path('admin/', admin.site.urls),
+    path('contatos/', views.listar_contatos, name='listar_contatos'),
+    path('contatos/novo/', views.cadastrar_contato, name='cadastrar_contato'),
+    path('contatos/<int:contato_id>/editar/', views.atualizar_contato, name='atualizar_contato'),
+    path('contatos/<int:contato_id>/remover/', views.remover_contato, name='remover_contato'),
+    path('', views.home, name='home'),
 ]
